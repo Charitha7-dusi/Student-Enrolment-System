@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Courses</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+	<script>
+		function getAllCourses() {
+			$.ajax({
+				type: "GET",
+				url: "http://localhost:8080/courses",
+				headers: {
+					"Authorization": "Basic " + btoa("charitha:charitha")
+				},
+				success: function (result) {
+					// Convert the result to a string
+					var resultString = JSON.stringify(result);
+
+					// Display the result as a string in an alert
+					alert(resultString);
+				}
+			});
+		}
+	</script>
+
+</head>
+
+<body>
+	<h1>Client</h1>
+	<button onclick="getAllCourses()">Get All Courses By Clicking This Link</button>
+</body>
+
+</html>
